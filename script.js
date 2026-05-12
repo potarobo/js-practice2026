@@ -1,5 +1,25 @@
+const input = document.querySelector('#input');
+const list = document.querySelector('#list');
+const btn = document.querySelector('#btn');
 const items = document.querySelectorAll('.item');
 
-items.forEach(function(item){
-  item.style.color = 'tomato' ;
+list.addEventListener('click', function (e) {
+  if(e.target.tagName === 'LI'){
+    console.log(e.target.textContent);
+  }
+});
+
+
+
+btn.addEventListener('click', function () {
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = '削除';
+  const li = document.createElement('li');
+  li.textContent = input.value;
+  li.appendChild(deleteBtn);
+  list.appendChild(li);
+
+  deleteBtn.addEventListener('click', function () {
+  li.remove();
+});
 });
