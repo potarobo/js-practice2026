@@ -4,11 +4,11 @@ const list = document.querySelector('#list');
 
 btn.addEventListener('click',function(){
   const li = document.createElement('li');
-  li.textContent = input.value;
   const deleteBtn = document.createElement('button');
+  li.textContent = input.value;
+  list.appendChild(li);
   deleteBtn.textContent = '削除';
   li.appendChild(deleteBtn);
-  list.appendChild(li);
   deleteBtn.addEventListener('click',function(){
     li.remove();
   });
