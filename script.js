@@ -1,20 +1,13 @@
-const input = document.querySelector('#input');
-const list = document.querySelector('#list');
 const btn = document.querySelector('#btn');
+const list = document.querySelector('#list');
+let count = 0;
 
 btn.addEventListener('click',function(){
-  const li = document.createElement('li');
-  const deleteBtn = document.createElement('button');
-  li.textContent = input.value;
-  deleteBtn.textContent = '削除';
-  li.appendChild(　deleteBtn);
-  list.appendChild(li);
-  deleteBtn.addEventListener('click',function(){
-    li.remove();
-  })
+	count++;
+	const li = document.createElement('li');
+	list.appendChild(li);
+	li.textContent= 'アイテム'+ count;
+	li.addEventListener('click',function(){
+		li.classList.toggle('active');
+	})
 });
-list.addEventListener('click',function(e){
-  if(e.target.tagName === 'LI'){
-  console.log(e.target.textContent);
-  }
-})
